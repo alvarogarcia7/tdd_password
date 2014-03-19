@@ -19,6 +19,10 @@ public class ValidPasswordTest {
 		assertTrue(isValidPassword("1sdf-A1"));
 	}
 	@Test
+	public void invalidPasswordWhenHasNoMayus(){
+		assertFalse(isValidPassword("1sdf-a1"));
+	}
+	@Test
 	public void invalidPasswordWhenHasNoNumbers(){
 		assertFalse(isValidPassword("123456"));
 	}
@@ -28,6 +32,9 @@ public class ValidPasswordTest {
 		if(candidatePassword.length() >= 6){
 			if(isNumbersOnly(candidatePassword)){
 				isValidPassword = false;
+				return isValidPassword;
+			}
+			if(candidatePassword.replaceAll("[A-Z]", "").length() == candidatePassword.length()){
 				return isValidPassword;
 			}
 			isValidPassword = true;
