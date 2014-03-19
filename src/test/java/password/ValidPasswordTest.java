@@ -7,11 +7,11 @@ import org.junit.Test;
 public class ValidPasswordTest {
 
 	@Test
-	public void falsePassword(){
+	public void invalidPasswordDoesNotHaveValidLength(){
 		assertFalse(isValidPassword("sdf-A"));
 	}
 	@Test
-	public void validPassword(){
+	public void validatePasswordWhenHasLenghtUpperLowerNumber(){
 		assertTrue(isValidPassword("1sdf-A"));
 	}
 	@Test
