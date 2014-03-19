@@ -8,11 +8,15 @@ public class ValidPasswordTest {
 
 	@Test
 	public void invalidPasswordDoesNotHaveValidLength(){
-		assertFalse(isValidPassword("sdf-A"));
+		assertFalse(isValidPassword("sdf-A"));  
 	}
 	@Test
 	public void validatePasswordWhenHasLenghtUpperLowerNumber(){
 		assertTrue(isValidPassword("1sdf-A"));
+	}
+	@Test
+	public void validatePasswordWhenHasBiggerLenghtUpperLowerNumber(){
+		assertTrue(isValidPassword("1sdf-A1"));
 	}
 	@Test
 	public void invalidPasswordWhenHasNoNumbers(){
@@ -21,7 +25,7 @@ public class ValidPasswordTest {
 	
 	private boolean isValidPassword(String candidatePassword) {
 		boolean isValidPassword = false;
-		if(candidatePassword.length() == 6 ){
+		if(candidatePassword.length() >= 6){
 			if(isNumbersOnly(candidatePassword)){
 				isValidPassword = false;
 				return isValidPassword;
