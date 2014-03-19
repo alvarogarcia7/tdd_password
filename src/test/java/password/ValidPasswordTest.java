@@ -16,6 +16,10 @@ public class ValidPasswordTest {
 		assertTrue(checkLength("1aA-aa"));
 	}
 
+	private boolean checkLength(String string) {
+		return true;
+	}
+
 	private boolean isValidPassword(String password){
 		return true;
 	}
