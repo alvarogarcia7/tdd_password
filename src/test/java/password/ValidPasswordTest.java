@@ -8,10 +8,15 @@ public class ValidPasswordTest {
 
 	@Test
 	public void validPasswordWhenAllRequirementsPassed() {
-		assertTrue(validPasword("1aA-aa"));
+		assertTrue(isValidPassword("1aA-aa"));
+	}
+	
+	@Test
+	public void validPasswordWhenMinimumLengthIsLessThan() {
+		assertTrue(checkLength("1aA-aa"));
 	}
 
-	private boolean validPasword(String password){
+	private boolean isValidPassword(String password){
 		return true;
 	}
 }
