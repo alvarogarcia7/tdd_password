@@ -7,20 +7,34 @@ import org.junit.Test;
 public class ValidPasswordTest {
 
 	@Test
-	public void validPasswordWhenAllRequirementsPassed() {
-		assertTrue(isValidPassword("1aA-aa"));
+	public void falsePassword(){
+		assertFalse(isValidPassword("sdf-A"));
+	}
+	@Test
+	public void validPassword(){
+		assertTrue(isValidPassword("1sdf-A"));
+	}
+	@Test
+	public void invalidPasswordWhenHasNoNumbers(){
+		assertFalse(isValidPassword("123456"));
 	}
 	
-	@Test
-	public void validPasswordWhenMinimumLengthIsLessThan() {
-		assertTrue(checkLength("1aA-aa"));
+	private boolean isValidPassword(String candidatePassword) {
+		boolean isValidPassword = false;
+		if(candidatePassword.length() == 6 ){
+			if(isNumbersOnly(candidatePassword)){
+				isValidPassword = false;
+				return isValidPassword;
+			}
+			isValidPassword = true;
+		}
+		return isValidPassword;
+		
 	}
+	private boolean isNumbersOnly(String candidatePassword) {
+		String objectWithoutNumbers = candidatePassword.replaceAll("[0-9]+", "");
+		return objectWithoutNumbers.length() == 0;
+	}
+	
 
-	private boolean checkLength(String string) {
-		return true;
-	}
-
-	private boolean isValidPassword(String password){
-		return true;
-	}
 }
